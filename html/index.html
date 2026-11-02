@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raquelry Silva | Engenheira de Software</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <!-- Scripts Externos -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    
+    <!-- Configuração do Tailwind -->
+    <script src="../javascript/tailwind-config.js"></script>
+</head>
+<body class="bg-primary-50 font-sans text-gray-800">
+    <custom-navbar></custom-navbar>
+    
+    <main class="container mx-auto px-4 py-12">
+        <!-- Hero Section -->
+        <section class="flex flex-col md:flex-row items-center gap-12 mb-24 relative overflow-hidden">
+            <!-- Flores Decorativas -->
+            <div class="hero-flower parallax-flower absolute top-0 left-10 text-4xl opacity-60" style="animation-duration: 3s;">🌸</div>
+            <div class="hero-flower parallax-flower absolute bottom-20 right-10 text-5xl opacity-50 animate-pulse">🌺</div>
+            <div class="hero-flower parallax-flower absolute top-20 right-1/3 text-3xl opacity-40">🌻</div>
+            <div class="hero-flower parallax-flower absolute bottom-0 left-1/4 text-4xl opacity-50">🌹</div>
+            <div class="hero-flower parallax-flower absolute top-1/2 left-0 text-3xl opacity-30">🌷</div>
+
+            <div class="md:w-1/2 z-10">
+                <h1 class="text-4xl md:text-5xl font-bold text-primary-700 mb-4">Olá, eu sou <span class="text-primary-600">Raquelry Silva</span> 🌸</h1>
+                <h2 class="text-2xl md:text-3xl font-semibold text-primary-500 mb-6">Estudante de Engenharia de Software</h2>
+                <p class="text-lg mb-8 text-gray-700">Quarto período apaixonada por desenvolvimento web, design de interfaces e resolver problemas com código criativo.</p>
+                <div class="flex gap-4">
+                    <a href="#projects" class="bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-medium transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">Meus Projetos</a>
+                    <a href="#contact" class="border-2 border-primary-500 text-primary-600 hover:bg-primary-50 px-6 py-3 rounded-lg font-medium transition-all hover:-translate-y-1">Contato</a>
+                </div>
+                <div class="flex gap-4">
+                    <a href="https://www.linkedin.com/in/raquelryfonseca/" target="_blank" rel="noopener noreferrer" class="bg-[#0A66C2] hover:bg-[#084d94] text-white p-3 rounded-full transition-all shadow-md hover:shadow-lg hover:-translate-y-1" title="LinkedIn">
+                        <i data-feather="linkedin"></i>
+                    </a>
+                    <a href="https://github.com/Rquelry" target="_blank" rel="noopener noreferrer" class="bg-gray-800 hover:bg-gray-900 text-white p-3 rounded-full transition-all shadow-md hover:shadow-lg hover:-translate-y-1" title="GitHub">
+                        <i data-feather="github"></i>
+                    </a>
+                    <a href="mailto:rquelrysoftware@gmail.com" class="bg-primary-500 hover:bg-primary-600 text-white p-3 rounded-full transition-all shadow-md hover:shadow-lg hover:-translate-y-1" title="Email">
+                        <i data-feather="mail"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative animate-float">
+                    <div class="w-64 h-64 md:w-80 md:h-80 bg-primary-100 rounded-full overflow-hidden border-8 border-primary-200 shadow-xl">
+                        <img src="../assets/images/profile.jpg" alt="Raquelry Silva" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-4 -right-4 bg-white p-3 rounded-full shadow-lg animate-bounce" style="animation-duration: 3s;">
+                        <div class="bg-primary-500 text-white p-3 rounded-full">
+                            <i data-feather="code"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="mb-24">
+            <h2 class="text-3xl font-bold text-primary-700 mb-8 text-center">Sobre Mim</h2>
+            <div class="bg-white rounded-2xl p-8 shadow-lg max-w-4xl mx-auto">
+                <div class="flex flex-col md:flex-row gap-8">
+                    <div class="md:w-1/3">
+                        <div class="bg-primary-100 p-6 rounded-xl mb-6">
+                            <h3 class="text-xl font-semibold text-primary-700 mb-3">Educação</h3>
+                            <p class="text-primary-600 font-medium">Engenharia de Software</p>
+                            <p class="text-sm text-gray-600">4º Período - Em andamento</p>
+                        </div>
+                        <div class="bg-primary-100 p-6 rounded-xl">
+                            <h3 class="text-xl font-semibold text-primary-700 mb-3">Habilidades</h3>
+                            <ul class="space-y-2">
+                                <li class="flex items-center gap-2">
+                                    <span class="w-2 h-2 bg-primary-500 rounded-full"></span>
+                                    <span>HTML/CSS</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="w-2 h-2 bg-primary-500 rounded-full"></span>
+                                    <span>JavaScript</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="w-2 h-2 bg-primary-500 rounded-full"></span>
+                                    <span>UI/UX Design</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="w-2 h-2 bg-primary-500 rounded-full"></span>
+                                    <span>SQL & JSON</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="w-2 h-2 bg-primary-500 rounded-full"></span>
+                                    <span>Supabase (DB)</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="w-2 h-2 bg-primary-500 rounded-full"></span>
+                                    <span>Ionic (Mobile)</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="w-2 h-2 bg-primary-500 rounded-full"></span>
+                                    <span>Git</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="md:w-2/3">
+                        <h3 class="text-xl font-semibold text-primary-700 mb-4">Minha Jornada</h3>
+                        <p class="mb-4 text-gray-700">Desde criança sempre fui fascinada por tecnologia e como as coisas funcionam por trás das telas. Essa curiosidade me levou a escolher Engenharia de Software como minha carreira.</p>
+                        <p class="mb-4 text-gray-700">Atualmente no quarto período, estou focando meus estudos na criação de aplicativos Android, aliando meus conhecimentos em front-end e bancos de dados para desenvolver soluções completas. Meu objetivo é me especializar no desenvolvimento de aplicativos gerenciais voltados para empresas e comércios locais, proporcionando ferramentas que facilitem a gestão e o crescimento desses negócios.</p>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-semibold text-primary-600 mb-3">Ferramentas que uso:</h4>
+                            <div class="flex flex-wrap gap-3">
+                                <span class="bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-sm">VS Code</span>
+                                <span class="bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-sm">Figma</span>
+                                <span class="bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-sm">GitHub</span>
+                                <span class="bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-sm">Tailwind CSS</span>
+                                <span class="bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-sm">React</span>
+                                <span class="bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-sm">SQL</span>
+                                <span class="bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-sm">Supabase</span>
+                                <span class="bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-sm">Ionic</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="mb-24">
+            <h2 class="text-3xl font-bold text-primary-700 mb-12 text-center">Meus Projetos</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
+                    <div class="h-48 bg-primary-100 overflow-hidden">
+                        <img src="../assets/images/lifestyle-fit.png" alt="Lifestyle Fit" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary-700 mb-2">Lifestyle Fit</h3>
+                        <p class="text-gray-600 mb-4">Site demonstrativo de academia com tema escuro e verde neon, contadores animados, cards de treinos interativos, planos de assinatura com toggle, FAQ e formulário de day pass. Protótipo desenvolvido por Raquelry Fonseca.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex gap-2">
+                                <span class="bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs">React</span>
+                                <span class="bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs">Tailwind</span>
+                                <span class="bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs">Vercel</span>
+                            </div>
+                            <a href="https://lifestyle-life.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:text-primary-700">
+                                <i data-feather="external-link"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
+                    <div class="h-48 bg-primary-100 overflow-hidden">
+                        <img src="../assets/images/florescer.png" alt="Florescer" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary-700 mb-2">Florescer 🌸</h3>
+                        <p class="text-gray-600 mb-4">Organizador de estudos fofo e floral para concursos e faculdade. Conta com Painel, Calendário, Cronograma, Matérias, Pomodoro (registra horas sozinho), Relatórios mensais e Recompensas com pétalas. Tudo salvo no navegador, sem login.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex gap-2">
+                                <span class="bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs">React</span>
+                                <span class="bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs">Tailwind</span>
+                                <span class="bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs">Vercel</span>
+                            </div>
+                            <a href="https://organiza-o-estudo.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:text-primary-700">
+                                <i data-feather="external-link"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
+                    <div class="h-48 bg-primary-100 overflow-hidden">
+                        <img src="../assets/images/colorado.png" alt="Empréstimo Jardim Colorado" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary-700 mb-2">Empréstimo Jardim Colorado</h3>
+                        <p class="text-gray-600 mb-4">Sistema de gestão desenvolvido para a rede SESI, voltado para equipes de TI de escolas, com controle de empréstimos de equipamentos e periféricos, gerenciamento de estoque, chamados técnicos, organização de tarefas e armazenamento seguro de credenciais.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex gap-2">
+                                <span class="bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs">React</span>
+                                <span class="bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs">Next.js</span>
+                                <span class="bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs">Vercel</span>
+                            </div>
+                            <a href="https://jardim-colorado.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:text-primary-700">
+                                <i data-feather="external-link"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 - Virtuosa Laços -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
+                    <div class="h-48 bg-primary-100 overflow-hidden">
+                        <img src="../assets/images/virtuosa.png" alt="Virtuosa Laços" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary-700 mb-2">Virtuosa Laços 🎀</h3>
+                        <p class="text-gray-600 mb-4">E-commerce especializado na venda de laços e presilhas infantis artesanais, feitos à mão. O site permite aos clientes navegar pela coleção de acessórios, adicionar itens ao carrinho e finalizar os pedidos diretamente pelo WhatsApp ou Instagram.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex gap-2">
+                                <span class="bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs">E-commerce</span>
+                                <span class="bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs">WhatsApp</span>
+                                <span class="bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs">Vercel</span>
+                            </div>
+                            <a href="https://virtuosalacos.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:text-primary-700">
+                                <i data-feather="external-link"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 - Crow Bird -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
+                    <div class="h-48 bg-primary-100 overflow-hidden">
+                        <img src="../assets/images/crow bird.png" alt="Crow Bird" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary-700 mb-2">Crow Bird 🐦‍⬛</h3>
+                        <p class="text-gray-600 mb-4">Crow Bird é um jogo arcade inspirado no clássico Flappy Bird com temática de Halloween. No comando de um corvo mágico com chapéu de bruxa, o objetivo é voar o mais longe possível por um mundo de terror, desviando dos pilares de mármore para bater o próprio recorde!</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex gap-2">
+                                <span class="bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs">JavaScript</span>
+                                <span class="bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs">Game Dev</span>
+                                <span class="bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs">Vercel</span>
+                            </div>
+                            <a href="https://crow-bird-rquelry.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:text-primary-700">
+                                <i data-feather="external-link"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
+                    <div class="h-48 bg-primary-100 overflow-hidden flex items-center justify-center">
+                        <span class="text-primary-400 text-6xl">✨</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary-700 mb-2">Projeto 6</h3>
+                        <p class="text-gray-600 mb-4">Descrição do seu próximo projeto. Adicione aqui as funcionalidades e detalhes do que você criou.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex gap-2">
+                                <span class="bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs">React</span>
+                                <span class="bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs">Tailwind</span>
+                                <span class="bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs">Vercel</span>
+                            </div>
+                            <a href="#" class="text-primary-600 hover:text-primary-700">
+                                <i data-feather="external-link"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="mb-24">
+            <h2 class="text-3xl font-bold text-primary-700 mb-12 text-center">Vamos Conversar</h2>
+            <div class="bg-white rounded-2xl p-8 shadow-lg max-w-4xl mx-auto">
+                <div class="flex flex-col md:flex-row gap-12">
+                    <div class="md:w-1/2">
+                        <h3 class="text-xl font-semibold text-primary-700 mb-4">Informações de Contato</h3>
+                        <p class="text-gray-700 mb-6">Estou sempre aberta a novas oportunidades e colaborações. Sinta-se à vontade para entrar em contato!</p>
+                        
+                        <div class="space-y-4">
+                            <a href="mailto:rquelrysoftware@gmail.com" class="flex items-center gap-4 hover:bg-primary-50 p-2 -m-2 rounded-lg transition-colors">
+                                <div class="bg-primary-100 p-3 rounded-full text-primary-600">
+                                    <i data-feather="mail"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-500">Email</p>
+                                    <p class="font-medium">rquelrysoftware@gmail.com</p>
+                                </div>
+                            </a>
+                            <a href="https://github.com/Rquelry" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 hover:bg-primary-50 p-2 -m-2 rounded-lg transition-colors">
+                                <div class="bg-primary-100 p-3 rounded-full text-primary-600">
+                                    <i data-feather="github"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-500">GitHub</p>
+                                    <p class="font-medium">github.com/Rquelry</p>
+                                </div>
+                            </a>
+                            <a href="https://www.linkedin.com/in/raquelryfonseca/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 hover:bg-primary-50 p-2 -m-2 rounded-lg transition-colors">
+                                <div class="bg-primary-100 p-3 rounded-full text-primary-600">
+                                    <i data-feather="linkedin"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-500">LinkedIn</p>
+                                    <p class="font-medium">linkedin.com/in/raquelryfonseca</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2">
+                        <form id="contact-form" class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nome</label>
+                                <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Mensagem</label>
+                                <textarea id="message" name="message" rows="5" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-[#25D366] hover:bg-[#1ebe5a] text-white px-6 py-3 rounded-lg font-medium transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2">
+                                <i data-feather="send"></i>
+                                <span>Enviar pelo WhatsApp</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <custom-footer></custom-footer>
+
+    <!-- Flores Brancas Decorativas no Rodapé -->
+    <div class="absolute bottom-0 left-0 w-full h-40 pointer-events-none z-0 overflow-hidden">
+        <div class="absolute bottom-0 left-10 text-6xl opacity-30 animate-pulse" style="filter: grayscale(100%) brightness(200%); animation-duration: 4s;">🌸</div>
+        <div class="absolute bottom-10 left-1/4 text-4xl opacity-20" style="filter: grayscale(100%) brightness(200%);">🌺</div>
+        <div class="absolute bottom-5 right-1/3 text-5xl opacity-25 animate-bounce" style="filter: grayscale(100%) brightness(200%); animation-duration: 5s;">💮</div>
+        <div class="absolute bottom-0 right-10 text-6xl opacity-30" style="filter: grayscale(100%) brightness(200%);">🌹</div>
+    </div>
+
+    <!-- Chatbot Widget -->
+    <div id="chatbot-container" class="fixed bottom-6 right-6 z-[100] flex flex-col items-end">
+        <!-- Chat Window -->
+        <div id="chat-window" class="hidden w-80 md:w-96 bg-white rounded-2xl shadow-2xl border border-primary-100 overflow-hidden mb-4 transition-all duration-300 transform scale-95 opacity-0 origin-bottom-right">
+            <!-- Header -->
+            <div class="bg-primary-600 p-4 text-white flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-xl shadow-inner animate-bounce" style="animation-duration: 3s;">🌸</div>
+                    <div>
+                        <h4 class="font-bold text-sm" id="chat-title">Assistente da Raquelry</h4>
+                        <p class="text-[10px] text-primary-100 flex items-center gap-1">
+                            <span class="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></span>
+                            <span id="chat-status">Online agora</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button id="lang-toggle" class="text-[10px] bg-primary-700 px-2 py-1 rounded-md hover:bg-primary-800 transition-colors font-bold">EN</button>
+                    <button id="close-chat" class="hover:bg-primary-700 p-1 rounded-full transition-colors">
+                        <i data-feather="x" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Messages Area -->
+            <div id="chat-messages" class="h-80 overflow-y-auto p-4 space-y-4 bg-gray-50 scroll-smooth">
+                <!-- Welcome Message -->
+                <div class="flex gap-2 chat-message-appear">
+                    <div class="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center text-sm shrink-0">🌸</div>
+                    <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm text-sm text-gray-700 border border-gray-100" id="welcome-msg">
+                        Olá! Sou a assistente virtual da Raquelry. Como posso tornar seu dia mais criativo hoje? ✨
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Options -->
+            <div class="p-4 bg-white border-t border-gray-100">
+                <p class="text-[10px] text-gray-400 mb-2 uppercase font-bold tracking-wider" id="options-label">Perguntas frequentes:</p>
+                <div class="flex flex-wrap gap-2" id="chat-options">
+                    <!-- Options will be populated by JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat Bubble -->
+        <button id="chat-bubble" class="w-16 h-16 bg-primary-600 rounded-full flex items-center justify-center text-white shadow-lg hover:shadow-xl hover:bg-primary-700 transition-all hover:-translate-y-1 group relative">
+            <i data-feather="message-circle" class="w-8 h-8 group-hover:scale-110 transition-transform"></i>
+            <span class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full border-2 border-white animate-pulse"></span>
+        </button>
+    </div>
+
+    <!-- Script Principal -->
+    <script src="../javascript/script.js"></script>
+</body>
+</html>
