@@ -238,15 +238,37 @@ document.addEventListener('DOMContentLoaded', function() {
         chatMessages.appendChild(loadingDiv);
         chatMessages.scrollTop = chatMessages.scrollHeight;
 
-        // Fallback imediato para respostas fixas (IA desativada por segurança no front-end)
-        setTimeout(() => {
+        try {
+            // Chave inserida diretamente para teste imediato
+            const KEY = "AQ.Ab8RN6LZFHCxICQQpVutceWWCbEd3YCMDXNuabSeyfcrEs_sDg";
+            
+            const systemPrompt = currentLang === 'pt'
+                ? `Você é a assistente virtual oficial do portfólio da Raquelry Silva. Responda de forma simpática e objetiva sobre ela (Engenharia de Software, 4º período, foco em mobile/Android com Ionic e sistemas gerenciais).`
+                : `You are Raquelry Silva's official virtual assistant. Answer in a friendly and objective way about her (Software Engineering student, 4th semester, focused on mobile/Android with Ionic and management systems).`;
+
+            const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${KEY}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    contents: [{ parts: [{ text: `${systemPrompt}\n\nPergunta: ${userQuestion}` }] }]
+                })
+            });
+
+            if (!response.ok) throw new Error('Erro na API');
+
+            const data = await response.json();
+            const aiReply = data.candidates[0].content.parts[0].text;
+
             loadingDiv.remove();
-            const fallbackResponse = translations[currentLang].responses[userQuestion] ||
-                (currentLang === 'pt'
-                    ? "Desculpe, a assistente inteligente está em manutenção para melhoria da segurança. Por favor, tente as perguntas frequentes abaixo!"
-                    : "Sorry, the smart assistant is undergoing security maintenance. Please try the FAQs below!");
+            addMessage(aiReply, false);
+
+        } catch (error) {
+            console.error(error);
+            loadingDiv.remove();
+            const fallbackResponse = translations[currentLang].responses[userQuestion] || 
+                (currentLang === 'pt' ? "Estou com dificuldade de conexão agora, mas pode tentar as perguntas abaixo!" : "I'm having connection issues, but try the FAQs below!");
             addMessage(fallbackResponse, false);
-        }, 800);
+        }
     }
 
     function addMessage(text, isUser = false) {
