@@ -225,6 +225,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     async function askGemini(userQuestion) {
+        if (window.location.protocol === 'file:') {
+            console.warn("Atenção: A IA pode não funcionar corretamente ao abrir o arquivo diretamente (file://). Tente usar um servidor local (Live Server).");
+        }
+        
         const loadingId = "loading_" + Date.now();
         const loadingDiv = document.createElement('div');
         loadingDiv.id = loadingId;
@@ -239,13 +243,19 @@ document.addEventListener('DOMContentLoaded', function() {
         chatMessages.scrollTop = chatMessages.scrollHeight;
 
         try {
+            console.log("Iniciando chamada ao Gemini...");
+            console.log("Usando chave:", GEMINI_API_KEY ? "Chave presente" : "Chave AUSENTE");
+            
             const systemPrompt = currentLang === 'pt'
                 ? `Você é a assistente virtual oficial do portfólio da Raquelry Silva, estudante de Engenharia de Software no 4º período. Ela desenvolve sites com HTML, CSS, JavaScript e React, usa Tailwind CSS, tem conhecimentos sólidos em SQL/JSON e Supabase, estuda desenvolvimento Android com Ionic e cria sistemas gerenciais para comércios locais. Responda de forma simpática, prestativa e objetiva sobre a Raquelry. Se a pergunta for sobre como acessar os sites, diga que os links estão nos cards da seção de projetos e que estão hospedados na Vercel.`
                 : `You are the official virtual assistant of Raquelry Silva's portfolio, a Software Engineering student in her 4th semester. She builds websites with HTML, CSS, JavaScript and React, uses Tailwind CSS, has solid knowledge in SQL/JSON and Supabase, studies Android development with Ionic and builds management systems for local businesses. Answer in a friendly, helpful and objective way about Raquelry. If asked about accessing the sites, say the links are on the project cards and they are hosted on Vercel.`;
 
+            // Alterado para gemini-1.5-flash
             const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 
+                    'Content-Type': 'application/json'
+                },
                 body: JSON.stringify({
                     contents: [{
                         parts: [{ text: `${systemPrompt}\n\nPergunta: ${userQuestion}` }]
@@ -254,7 +264,9 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             if (!response.ok) {
-                throw new Error('Erro na resposta da API');
+                const errorData = await response.json();
+                console.error("Erro da API Gemini:", errorData);
+                throw new Error(`Erro API: ${response.status} - ${errorData.error?.message || 'Erro desconhecido'}`);
             }
 
             const data = await response.json();
@@ -264,7 +276,7 @@ document.addEventListener('DOMContentLoaded', function() {
             addMessage(aiReply, false);
 
         } catch (error) {
-            console.error("Erro ao contactar a IA:", error);
+            console.error("Erro detalhado ao contactar a IA:", error);
             loadingDiv.remove();
             const fallbackResponse = translations[currentLang].responses[userQuestion] ||
                 (currentLang === 'pt'
