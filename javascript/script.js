@@ -221,12 +221,57 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function handleOptionClick(question) {
         addMessage(question, true);
-        
-        setTimeout(() => {
-            const response = translations[currentLang].responses[question] || 
-                (currentLang === 'pt' ? "Desculpe, não entendi. Pode tentar outra?" : "Sorry, I didn't get that. Try another one?");
-            addMessage(response, false);
-        }, 600);
+        askGemini(question);
+    }
+
+    async function askGemini(userQuestion) {
+        const loadingId = "loading_" + Date.now();
+        const loadingDiv = document.createElement('div');
+        loadingDiv.id = loadingId;
+        loadingDiv.className = 'flex gap-2 chat-message-appear';
+        loadingDiv.innerHTML = `
+            <div class="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center text-sm shrink-0">🌸</div>
+            <div class="bg-white text-gray-700 border border-gray-100 p-3 rounded-2xl rounded-tl-none shadow-sm text-sm">
+                <span class="inline-block animate-pulse">...</span>
+            </div>
+        `;
+        chatMessages.appendChild(loadingDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+
+        try {
+            const systemPrompt = currentLang === 'pt'
+                ? `Você é a assistente virtual oficial do portfólio da Raquelry Silva, estudante de Engenharia de Software no 4º período. Ela desenvolve sites com HTML, CSS, JavaScript e React, usa Tailwind CSS, tem conhecimentos sólidos em SQL/JSON e Supabase, estuda desenvolvimento Android com Ionic e cria sistemas gerenciais para comércios locais. Responda de forma simpática, prestativa e objetiva sobre a Raquelry. Se a pergunta for sobre como acessar os sites, diga que os links estão nos cards da seção de projetos e que estão hospedados na Vercel.`
+                : `You are the official virtual assistant of Raquelry Silva's portfolio, a Software Engineering student in her 4th semester. She builds websites with HTML, CSS, JavaScript and React, uses Tailwind CSS, has solid knowledge in SQL/JSON and Supabase, studies Android development with Ionic and builds management systems for local businesses. Answer in a friendly, helpful and objective way about Raquelry. If asked about accessing the sites, say the links are on the project cards and they are hosted on Vercel.`;
+
+            const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    contents: [{
+                        parts: [{ text: `${systemPrompt}\n\nPergunta: ${userQuestion}` }]
+                    }]
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error('Erro na resposta da API');
+            }
+
+            const data = await response.json();
+            const aiReply = data.candidates[0].content.parts[0].text;
+
+            loadingDiv.remove();
+            addMessage(aiReply, false);
+
+        } catch (error) {
+            console.error("Erro ao contactar a IA:", error);
+            loadingDiv.remove();
+            const fallbackResponse = translations[currentLang].responses[userQuestion] ||
+                (currentLang === 'pt'
+                    ? "Desculpe, tive um problema técnico para consultar a IA. Pode tentar novamente?"
+                    : "Sorry, I had a technical issue querying the AI. Can you try again?");
+            addMessage(fallbackResponse, false);
+        }
     }
 
     function addMessage(text, isUser = false) {
@@ -266,9 +311,22 @@ document.addEventListener('DOMContentLoaded', function() {
             currentLang = currentLang === 'pt' ? 'en' : 'pt';
             updateChatLanguage();
             
-            // Add a small notification message about language change
-            const msg = currentLang === 'pt' ? 'Idioma alterado para Português 🇧🇷' : 'Language changed to English 🇺🇸';
+            const msg = currentLang === 'pt' ? 'Idioma alterado para Português' : 'Language changed to English';
             addMessage(msg, false);
         });
+
+        const chatForm = document.getElementById('chat-form');
+        const chatInput = document.getElementById('chat-input');
+        if (chatForm && chatInput) {
+            chatForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const question = chatInput.value.trim();
+                if (question) {
+                    addMessage(question, true);
+                    askGemini(question);
+                    chatInput.value = '';
+                }
+            });
+        }
     }
 });
